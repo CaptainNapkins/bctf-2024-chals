@@ -1,5 +1,5 @@
 arm:
-	aarch64-linux-gnu-gcc chal.c -o chalarm
+	aarch64-linux-gnu-gcc chal.c --enable-default-pie -o chalarm
 
 reg:
 	gcc chal.c -o chal64

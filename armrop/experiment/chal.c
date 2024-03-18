@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <time.h>
 
+__asm__("mov x0, x19; ret;" 
+	"mov x0, x17; ret");
+
 int main() {
   setup();
   int choice;
