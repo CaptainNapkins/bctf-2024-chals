@@ -61,7 +61,7 @@ int worthyness_tester() {
 }
 
 void get_address() {
-	char address[35];
+	char address[36];
         printf("\tCould we have an address to ship said appendage? ");
 	scanf("%34s", address);
         printf("\nThanks, we will ship to: ");
@@ -71,9 +71,15 @@ void get_address() {
 }
 
 void feedback() {
-	char feedback[100];
+	char feedback[104];
 	puts("Care to leave some feedback?!");
-	fgets(feedback, 0x100, stdin);
+	fgets(feedback, 0x104, stdin);
+	for (int i = 0; feedback[i] != '\0'; i++) {
+		if (feedback[i] == '\n') {
+			feedback[i] = '\0';
+			break;
+		}
+	}
 	puts("Thanks!");
 }
 

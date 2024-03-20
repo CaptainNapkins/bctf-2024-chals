@@ -3,6 +3,7 @@ set arch aarch64
 file chalarm
 tar ext :1234
 break *get_address
+break *(feedback + 144)
 continue
 # display $x0
 # display $x1
