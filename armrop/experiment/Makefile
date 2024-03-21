@@ -1,4 +1,6 @@
 arm:
+	aarch64-linux-gnu-gcc chal.c -no-pie -o  exparm
+final:
 	aarch64-linux-gnu-gcc chal.c -no-pie -o  chal
 
 static:

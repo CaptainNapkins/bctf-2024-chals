@@ -42,18 +42,11 @@ void setup() {
   setbuf(stderr, NULL);
 }
 
-int trng() {
-	int num;
-	int random_num;
-	num = (time(0) * 69) % 44;
-	return num;
-}
 
 int worthyness_tester() {
 	int num; 
 	int random_num;
 	puts("What number am I thinking of?");
-	//random_num = trng();
 	random_num = 1337;
 	scanf("%d", &num);
 	if (num == random_num) {
