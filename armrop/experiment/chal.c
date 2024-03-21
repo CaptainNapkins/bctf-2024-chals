@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <time.h>
 
-__asm__("mov x0, x19; ret;" 
-	"mov x0, x17; ret");
+__asm__("str x19, [sp, #8]; ldp x29, x30, [sp], #0x10; ret;");
+__asm__("mov x2, sp; ldp x29, x30, [sp], #0x10; ret;");
+__asm__("ldr x0, [x2, #0x10]; ldp x29, x30, [sp], #0x10; ret;");
 
 int main() {
   setup();

@@ -1,5 +1,5 @@
 arm:
-	aarch64-linux-gnu-gcc chal.c -o exparm
+	aarch64-linux-gnu-gcc chal.c -no-pie -o  exparm
 
 static:
 	aarch64-linux-gnu-gcc chal.c -o expstatic -static
