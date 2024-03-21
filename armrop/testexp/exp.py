@@ -10,9 +10,9 @@ ld = ELF('ld-linux-aarch64.so.1')
 
 #p = process('qemu-aarch64 -g 1234 chalarm'.split())
 
-#p = process('qemu-aarch64 chalarm'.split())
+p = process('qemu-aarch64 chal'.split())
 
-p = remote('localhost', 5000)
+#p = remote('localhost', 5000)
 
 
 p.sendlineafter(b'2. Legs\n', b'1')
