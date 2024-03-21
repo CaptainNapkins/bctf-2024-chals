@@ -1,6 +1,6 @@
 init-pwndbg
 set arch aarch64
-file chalarm
+file chal
 tar ext :1234
 break *get_address
 break *(feedback + 108)
