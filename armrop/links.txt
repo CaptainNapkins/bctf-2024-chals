@@ -1,5 +1,7 @@
 Collection of links i used throughout making this chal
 
+- https://jensd.be/1126/linux/cross-compiling-for-arm-or-aarch64-on-debian-or-ubuntu
+- https://forums.freebsd.org/threads/how-to-cross-compile-arm64-binary-custom-code-from-x64-system.89385/
 - https://wiki.debian.org/QemuUserEmulation
 - https://www.qemu.org/docs/master/user/main.html
 - https://stackoverflow.com/questions/5429137/how-to-print-register-values-in-gdb

@@ -1,0 +1,6 @@
+Random Links
+- https://github.com/google/nsjail/issues/180
+- https://kubernetes.io/docs/tasks/debug/debug-application/get-shell-running-container/
+- https://stackoverflow.com/questions/72542109/how-can-i-start-a-pod-in-privileged-mode-from-a-manifest
+- https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+
