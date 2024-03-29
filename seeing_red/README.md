@@ -12,6 +12,8 @@
 		- Maybe the designer "Lost the flag" in the buffers within the program lol and couldn't find it
 			- And maybe its from the point of view of the ticket designer, ticketmaster, or tour manager and 
 			taylor will be mad if she finds out lol
+	- Maybe he lost is ticket code?
+		- he lost is voucher trying to write a bot lmao 
 
 
 
