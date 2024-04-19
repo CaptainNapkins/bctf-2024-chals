@@ -2,7 +2,7 @@ from pwn import *
 
 elf = context.binary = ELF('chal');
 #p = elf.process()
-p = remote('localhost', 4004)
+p = remote('gold.b01le.rs', 4004)
 
 context.terminal = ['tmux', 'split-window', '-h']
 gdb_script = '''

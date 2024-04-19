@@ -8,9 +8,9 @@ elf = context.binary = ELF('chalarm')
 libc = ELF('libc.so.6')
 ld = ELF('ld-linux-aarch64.so.1')
 
-#p = process('qemu-aarch64 -g 1234 chal'.split())
+p = process('qemu-aarch64 -g 1234 chal'.split())
 
-p = process('qemu-aarch64 chal'.split())
+#p = process('qemu-aarch64 chal'.split())
 
 #p = remote('localhost', 5000)
 

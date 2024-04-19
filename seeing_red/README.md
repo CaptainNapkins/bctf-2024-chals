@@ -16,7 +16,7 @@
 		- he lost is voucher trying to write a bot lmao 
 
 ## Notes
-- jack pointed out that we can use the read function to avoid the mutex problem we were having with
+- jack pointed out that we can use the read function to avoid the mutex problem i was having with
 fgets and scanf since itll just use the read syscall
 
 

